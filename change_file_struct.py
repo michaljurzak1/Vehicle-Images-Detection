@@ -70,8 +70,8 @@ def change_file_structure(save_dir=None, source_dir=None, dest_dir=None, new_dir
         lines = file.readlines()
 
     # Change these lines
-    lines[0] = 'train: ../images/train\n'
-    lines[1] = 'val: ../images/valid\n'
+    lines[0] = f'train: {os.path.abspath(os.path.join(dest_dir, "images/train"))}\n'
+    lines[1] = f'val: {os.path.abspath(os.path.join(dest_dir, "images/valid"))}\n'
 
     with open(new_file_path, 'w') as file:
         file.writelines(lines)
